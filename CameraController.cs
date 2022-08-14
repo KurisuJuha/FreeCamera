@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float Size = 10;
+    public float Size = 5;
 
     [Header("Sensi")]
     public float MouseWheelSensi = 1;
