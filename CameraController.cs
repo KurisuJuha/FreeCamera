@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float Size;
+    public float Size = 10;
 
     [Header("Sensi")]
-    public float MouseWheelSensi;
+    public float MouseWheelSensi = 1;
 
     [Header("Debug")]
     public float MouseWheel;
@@ -26,17 +26,17 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        // ƒTƒCƒY•ÏX
+        // ï¿½Tï¿½Cï¿½Yï¿½ÏX
         MouseWheel = Input.GetAxis("Mouse ScrollWheel") * MouseWheelSensi * -1;
         Size *= 1 + MouseWheel;
         Camera.main.orthographicSize = Size;
 
-        // ƒTƒCƒY•ÏX‚ğ‚à‚Æ‚ÉˆÚ“®
+        // ï¿½Tï¿½Cï¿½Yï¿½ÏXï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ÉˆÚ“ï¿½
         MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Camera.main.transform.position = Vector3.Lerp(MousePos, Camera.main.transform.position, 1 + MouseWheel);
         SetCameraZ();
 
-        // ¶ƒNƒŠƒbƒN‚ÅˆÚ“®
+        // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ÅˆÚ“ï¿½
         if (Input.GetMouseButtonDown(0))
         {
             MouseStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
